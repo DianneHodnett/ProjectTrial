@@ -6,34 +6,34 @@ import Template from './99-Template'
 
 
 export default class extends React.Component{
-    state = { singers: [] }
+    state = { Apartment: [] }
 
     render(){
 
-        const loadSingers = async () => {
+        const loadApartment = async () => {
             let temp1 = await client.query({
                 query: gql`
-                query {
-                    users {
-                      name
-                      id
+                    query{
+                        apartments{
+                            id
+                            name
+                        }
                     }
-                  }
-                `}).then((result) => { return result.data.users } )
+                `}).then((result) => { return result.data.name } )
             
             await console.log("La Data: ", temp1 )
-            await this.setState({ singers: temp1 })
+            await this.setState({ Apartment: temp1 })
         }
 
         
 
         return(
             <div>
-                <h1>Read Singers from DataBase</h1>
-                <button className="gralButton" onClick={ loadSingers } >Get All Singers</button>
+                <h1>Read Apartments from DB(Read Singers from DataBase)</h1>
+                <button className="gralButton" onClick={ loadApartment } >Show Apartments(Get All Singers)</button>
                 <br/><br/>
 
-                { this.state.singers[0] ? this.state.singers.map((x) => { return <Template key={x.id} data={x} /> }) : <div>Click to get singers</div> }
+                { this.state.apartment[0] ? this.state.apartment.map((x) => { return <Template key={x.id} data={x} /> }) : <div>Click to get Apartments(Click to get singers)</div> }
             </div>
         )
     }

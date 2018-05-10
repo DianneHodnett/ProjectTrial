@@ -5,7 +5,7 @@ import './Style/style.css'
 import { client } from './PrismaEndPoint/EndPoint'
 
 import ReadAll from './01-ReadAll'
-import Singers from './02-AddSingers'
+import Apartments from './02-AddApartments'
 import Update1 from './03-UpdateSinger'
 import Delete1 from './04-DeleteSinger'
 
@@ -19,22 +19,24 @@ export default class extends React.Component{
                     <div className="MainContainer">
                 
                         <div className="menu1">
-                            <Link className="menuButton" to="/">All Singers</Link>
-                            <Link className="menuButton" to="/2">Add-Singer</Link>
-                            <Link className="menuButton" to="/3">Update-Singer</Link>
-                            <Link className="menuButton" to="/4">Delete-Singer</Link>
+                            <Link className="menuButton" to="/">All Apartments</Link>
+                            <Link className="menuButton" to="/2">Add Apartment(Add-Singer)</Link>
+                            <Link className="menuButton" to="/2">Add Floor Plan(Add-Singer)</Link>
+                            <Link className="menuButton" to="/3">Update Apartment(Update-Singer)</Link>
+                            <Link className="menuButton" to="/3">Update Floor Plan(Update-Singer)</Link>
+                            <Link className="menuButton" to="/4">Delete Apartment(Delete-Singer)</Link>
                         </div>
                 
                         <hr/>
                 
                         <Route exact path="/" component={ReadAll}/>
-                        <Route path="/2" component={Singers}/>
+                        <Route path="/2" component={Apartments}/>
                         <Route path="/3" component={Update1}/>
                         <Route path="/4" component={Delete1}/>
 
                         <br/>
                         <hr/>
-                        <div>By: Edmundo</div>
+                        <div>By: Edmundo Edited by: Dianne Hodnett</div>
                 
                     </div>
                 </HashRouter>
